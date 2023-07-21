@@ -1,6 +1,7 @@
 package view;
 
 
+import model.SingletonUser;
 import controller.Controller;
 import model.User;
 import java.awt.GridBagConstraints;
