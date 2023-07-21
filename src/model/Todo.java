@@ -5,6 +5,10 @@ public class Todo {
     private String note;
     private int userId;
 
+    public Todo(){
+        
+    }
+    
     public Todo(String title, String note, int userId) {
         this.title = title;
         this.note = note;

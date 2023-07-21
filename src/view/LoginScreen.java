@@ -56,6 +56,7 @@ public class LoginScreen {
                 if (verifyLogin(email, password)) {
                     JOptionPane.showMessageDialog(frame, "Login Success.");
                     frame.dispose();
+                    
                     new HomePageScreen();
                 } else {
                     JOptionPane.showMessageDialog(frame, "Login failed. email or password is wrong");
@@ -95,8 +96,10 @@ public class LoginScreen {
     private boolean verifyLogin(String email, String password) {
         Controller con = new Controller();
         ArrayList<User> users = con.getAllUsers();
-        for (User user : users) {
-            if (user.getEmail().equals(email) && user.getPassword().equals(password)){
+        for (User u : users) {
+            if (u.getEmail().equals(email) && u.getPassword().equals(password)){
+                User user = con.getUser(email, password);
+                SingletonUser.getInstance().setUser(user);
                 return true;
             }
         }
